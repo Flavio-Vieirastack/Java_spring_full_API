@@ -4,6 +4,7 @@ import java.time.Instant;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.spring_full_api.spring_api.Service.exceptions.DataIntegrityException;
 import com.spring_full_api.spring_api.Service.exceptions.ObjectNotFoundException;
 
 import org.springframework.http.HttpStatus;
@@ -21,5 +22,14 @@ public class ResourceExceptionHandler {
         StandardError err = new StandardError(HttpStatus.NOT_FOUND.value(), e.getMessage(), Instant.now());
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
+    }
+
+    @ExceptionHandler(DataIntegrityException.class)
+    public ResponseEntity<StandardError> dataIntegrity(
+        DataIntegrityException e, HttpServletRequest request
+        ) {
+        StandardError err = new StandardError(HttpStatus.BAD_REQUEST.value(), e.getMessage(), Instant.now());
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
     }
 }
