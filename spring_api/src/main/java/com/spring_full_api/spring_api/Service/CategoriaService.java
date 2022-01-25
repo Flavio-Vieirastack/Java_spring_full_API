@@ -1,5 +1,6 @@
 package com.spring_full_api.spring_api.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.spring_full_api.spring_api.Domain.Categoria;
@@ -41,5 +42,9 @@ public class CategoriaService {
         } catch (DataIntegrityViolationException e) {
             throw new DataIntegrityException("Não é possivel excluir uma categoria com produtos");
         }
+    }
+
+    public List<Categoria> findAll(){
+        return repo.findAll();
     }
 }

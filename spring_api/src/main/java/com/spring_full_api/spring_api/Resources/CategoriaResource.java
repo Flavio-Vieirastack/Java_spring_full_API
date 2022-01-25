@@ -2,7 +2,10 @@ package com.spring_full_api.spring_api.Resources;
 
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import com.spring_full_api.spring_api.DTO.CategoriaDTO;
 import com.spring_full_api.spring_api.Domain.Categoria;
 import com.spring_full_api.spring_api.Service.CategoriaService;
 
@@ -34,6 +37,14 @@ public class CategoriaResource {
 
         
     }
+
+    @GetMapping
+    public ResponseEntity<List<CategoriaDTO>> findAll(){
+        List<Categoria> list = service.findAll();
+        List<CategoriaDTO> listDTO = list.stream().map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDTO);
+    }
+
     @PostMapping
     public ResponseEntity<Void> insert (@RequestBody Categoria obj) {
         obj = service.insert(obj);
