@@ -2,20 +2,36 @@ package com.spring_full_api.spring_api.DTO;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import com.spring_full_api.spring_api.Service.validation.ClienteInsert;
+
+import org.hibernate.validator.constraints.Length;
+
+@ClienteInsert
 public class ClienteNewDTO implements Serializable {
+    @NotEmpty(message = "Preenchimento obrigatório")
+    @Length(min = 5, max = 120, message = "O nome deve conter entre 5 e 120 caractéres")
     private String nome;
+    @NotEmpty(message = "Preenchimento obrigatório")
+    @Email(message = "Email inválido")
     private String email;
+    @NotEmpty(message = "Preenchimento obrigatório")
     private String cpfOuCnpj;
     private Integer tipo;
 
+    @NotEmpty(message = "Preenchimento obrigatório")
     private String logradouro;
+    @NotEmpty(message = "Preenchimento obrigatório")
     private String numero;
     private String complemento;
+    @NotEmpty(message = "Preenchimento obrigatório")
     private String bairro;
+    @NotEmpty(message = "Preenchimento obrigatório")
     private String cep;
-
     private Integer cidadeId;
-
+    @NotEmpty(message = "Preenchimento obrigatório")
     private String telefone1;
     private String telefone2;
     private String telefone3;
