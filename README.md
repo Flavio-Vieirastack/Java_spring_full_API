@@ -26,9 +26,9 @@ A API foi feita para atender as demandas de uma marketplace e por tanto tem as s
 #### Api de código livre sinta-se a vontade para usar e modificar de acordo com sua necessidade
 
 # Casos de uso
-**Atores** Cliente
-**Interessados** Departamento de vendas
-**Precondições** Cliente cadastrado
+**Atores** Cliente  
+**Interessados** Departamento de vendas  
+**Precondições** Cliente cadastrado  
 Pós-condições -
 * Visão geral
 Este caso de uso consiste no processo de escolha de produtos e
