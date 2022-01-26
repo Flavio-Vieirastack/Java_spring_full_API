@@ -6,10 +6,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import com.spring_full_api.spring_api.Domain.Cliente;
+import com.spring_full_api.spring_api.Service.validation.ClienteUpdate;
 
 import org.hibernate.validator.constraints.Length;
 
-
+@ClienteUpdate
 public class ClienteDTO implements Serializable{
     private Integer id;
     @NotEmpty(message = "Preenchimento obrigatório")
