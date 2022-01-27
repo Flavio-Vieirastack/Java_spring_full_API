@@ -2,9 +2,11 @@ package com.spring_full_api.spring_api.Domain;
 
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.spring_full_api.spring_api.Domain.enums.EstadoPagamento;
 
 @Entity
+@JsonTypeName("pagamentoComCartao")
 public class PagamentoComCartao extends Pagamento {
     private Integer numeroDeParcelas;
 
